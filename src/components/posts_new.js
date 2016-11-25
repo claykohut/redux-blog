@@ -12,26 +12,26 @@ class PostsNew extends Component {
       <form onSubmit={ handleSubmit(this.props.createPost) }>
         <h3>Create a Post New Post</h3>
 
-        <div className="form-group">
+        <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`} { ...title }>
            <label>Title</label>
-           <input type="text" className="form-control" { ...title } />
-           <div className="text-help">
+           <input type="text" className="form-control" />
+           <div className="form-control-label">
              { title.touched ? title.error : '' }
            </div>
         </div>
 
-        <div className="form-group">
+        <div className={`form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`}>
            <label>Categories</label>
            <input type="text" className="form-control" { ...categories } />
-           <div className="text-help">
+           <div className="form-control-label">
              { categories.touched ? categories.error : '' }
            </div>
         </div>
 
-        <div className="form-group">
+        <div className={`form-group ${content.touched && content.invalid ? 'has-danger' : ''}`}>
            <label>Content</label>
            <textarea type="text" className="form-control" { ...content } />
-           <div className="text-help">
+           <div className="form-control-label">
              { content.touched ? content.error : '' }
            </div>
         </div>
