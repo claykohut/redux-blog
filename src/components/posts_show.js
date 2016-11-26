@@ -5,12 +5,12 @@ import { fetchPost, deletePost } from '../actions/index'
 
 class PostsShow extends Component {
 
-  componentWillMount() {
-    this.props.fetchPost(this.props.params.id)
-  }
-
   static contextTypes = {
     router: PropTypes.object
+  }
+
+  componentWillMount() {
+    this.props.fetchPost(this.props.params.id)
   }
 
   onDeleteClick() {
@@ -23,8 +23,8 @@ class PostsShow extends Component {
   render() {
     const { post } = this.props
 
-    if(! post){
-      return <div>Loading...</div>;
+    if(! post || post.id != this.props.params.id){
+      return <div>loading..</div>;
     }
 
     return(
